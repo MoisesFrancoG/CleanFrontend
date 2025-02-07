@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="title is-3">{{ productId ? 'Editar Producto' : 'Crear Producto' }}</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+    <div class="field">
+      <label class="label" for="name">Nombre:</label>
+      <div class="control">
+        <input class="input" id="name" formControlName="name" type="text" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="price">Precio:</label>
+      <div class="control">
+        <input class="input" id="price" formControlName="price" type="number" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit" [disabled]="productForm.invalid">
+          {{ productId ? 'Actualizar' : 'Guardar' }}
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <a class="button is-link" routerLink="/products">Cancelar</a>
+</div>

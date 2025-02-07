@@ -1,0 +1,22 @@
+<table border="1" class="table is-striped is-bordered is-fullwidth">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.Id }}</td>
+        <td>{{ product.Name }}</td>
+        <td>${{ product.Price }}</td>
+        <td>
+          <button [routerLink]="['/products/edit', product.Id]" class="button">Editar</button>
+          <button (click)="deleteProduct(product.Id)" class="button">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

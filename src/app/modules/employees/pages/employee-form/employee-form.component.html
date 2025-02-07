@@ -1,0 +1,13 @@
+<h2>{{employeeId ? 'Editar Empleado' : 'Crear Empleado'}}</h2>
+<form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+  <label for="name">Nombre:</label>
+  <input id="name" formControlName="name" type="text" required />   
+  <label for="edad">Edad:</label>
+    <input id="age" formControlName="age" type="number" required />
+  <button type="submit" [disabled]="employeeForm.invalid">
+    {{employeeId ? 'Actualizar' : 'Guardar'}}
+  </button>
+  <a routerLink="/employees">Cancelar</a>
+</form>
+
+<a routerLink="/employees">Cancelar</a>

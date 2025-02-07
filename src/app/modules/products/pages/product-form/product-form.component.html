@@ -1,0 +1,15 @@
+<h2>{{ productId ? 'Editar Producto' : 'Crear Producto' }}</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+  <label for="name">Nombre:</label>
+  <input id="name" formControlName="name" type="text" required />
+
+  <label for="price">Precio:</label>
+  <input id="price" formControlName="price" type="number" required />
+
+  <button type="submit" [disabled]="productForm.invalid">
+    {{ productId ? 'Actualizar' : 'Guardar' }}
+  </button>
+</form>
+
+<a routerLink="/products">Cancelar</a>

@@ -1,0 +1,22 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.Id }}</td>
+        <td>{{ employee.Name }}</td>
+        <td>{{ employee.Age }}</td>
+        <td>
+          <button [routerLink]="['/employees/edit', employee.Id]">Editar</button>
+          <button (click)="deleteEmployee(employee.Id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

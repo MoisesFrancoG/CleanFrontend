@@ -1,0 +1,3 @@
+<h2>Lista de Empleados</h2>
+<app-employee-table [employees]="employees" (delete)="deleteEmployee($event)"></app-employee-table>
+<button><a routerLink="/employees/new">Crear Empleado</a></button>

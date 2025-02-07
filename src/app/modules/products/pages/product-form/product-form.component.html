@@ -1,15 +1,29 @@
-<h2>{{ productId ? 'Editar Producto' : 'Crear Producto' }}</h2>
+<div class="container">
+  <h2 class="title is-3">{{ productId ? 'Editar Producto' : 'Crear Producto' }}</h2>
 
-<form [formGroup]="productForm" (ngSubmit)="saveProduct()">
-  <label for="name">Nombre:</label>
-  <input id="name" formControlName="name" type="text" required />
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+    <div class="field">
+      <label class="label" for="name">Nombre:</label>
+      <div class="control">
+        <input class="input" id="name" formControlName="name" type="text" required />
+      </div>
+    </div>
 
-  <label for="price">Precio:</label>
-  <input id="price" formControlName="price" type="number" required />
+    <div class="field">
+      <label class="label" for="price">Precio:</label>
+      <div class="control">
+        <input class="input" id="price" formControlName="price" type="number" required />
+      </div>
+    </div>
 
-  <button type="submit" [disabled]="productForm.invalid">
-    {{ productId ? 'Actualizar' : 'Guardar' }}
-  </button>
-</form>
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit" [disabled]="productForm.invalid">
+          {{ productId ? 'Actualizar' : 'Guardar' }}
+        </button>
+      </div>
+    </div>
+  </form>
 
-<a routerLink="/products">Cancelar</a>
+  <a class="button is-link" routerLink="/products">Cancelar</a>
+</div>

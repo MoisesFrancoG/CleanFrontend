@@ -1,4 +1,4 @@
-<table border="1">
+<table border="1" class="table is-striped is-bordered is-fullwidth">
     <thead>
       <tr>
         <th>ID</th>
@@ -13,8 +13,8 @@
         <td>{{ product.Name }}</td>
         <td>${{ product.Price }}</td>
         <td>
-          <button [routerLink]="['/products/edit', product.Id]">Editar</button>
-          <button (click)="deleteProduct(product.Id)">Eliminar</button>
+          <button [routerLink]="['/products/edit', product.Id]" class="button">Editar</button>
+          <button (click)="deleteProduct(product.Id)" class="button">Eliminar</button>
         </td>
       </tr>
     </tbody>

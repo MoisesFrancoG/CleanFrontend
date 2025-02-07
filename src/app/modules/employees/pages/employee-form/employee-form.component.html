@@ -1,13 +1,29 @@
-<h2>{{employeeId ? 'Editar Empleado' : 'Crear Empleado'}}</h2>
-<form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
-  <label for="name">Nombre:</label>
-  <input id="name" formControlName="name" type="text" required />   
-  <label for="edad">Edad:</label>
-    <input id="age" formControlName="age" type="number" required />
-  <button type="submit" [disabled]="employeeForm.invalid">
-    {{employeeId ? 'Actualizar' : 'Guardar'}}
-  </button>
-  <a routerLink="/employees">Cancelar</a>
-</form>
+<div class="container">
+  <h2 class="title is-3">{{ employeeId ? 'Editar Empleado' : 'Crear Empleado' }}</h2>
 
-<a routerLink="/employees">Cancelar</a>
+  <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+    <div class="field">
+      <label class="label" for="name">Nombre:</label>
+      <div class="control">
+        <input class="input" id="name" formControlName="name" type="text" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="age">Edad:</label>
+      <div class="control">
+        <input class="input" id="age" formControlName="age" type="number" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit" [disabled]="employeeForm.invalid">
+          {{ employeeId ? 'Actualizar' : 'Guardar' }}
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <a class="button is-link" routerLink="/employees">Cancelar</a>
+</div>

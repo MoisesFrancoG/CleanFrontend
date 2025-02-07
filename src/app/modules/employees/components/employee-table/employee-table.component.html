@@ -1,4 +1,4 @@
-<table border="1">
+<table border="1" class="table is-striped is-bordered is-fullwidth">
     <thead>
       <tr>
         <th>ID</th>
@@ -13,8 +13,8 @@
         <td>{{ employee.Name }}</td>
         <td>{{ employee.Age }}</td>
         <td>
-          <button [routerLink]="['/employees/edit', employee.Id]">Editar</button>
-          <button (click)="deleteEmployee(employee.Id)">Eliminar</button>
+          <button [routerLink]="['/employees/edit', employee.Id]" class="button">Editar</button>
+          <button (click)="deleteEmployee(employee.Id)" class="button">Eliminar</button>
         </td>
       </tr>
     </tbody>

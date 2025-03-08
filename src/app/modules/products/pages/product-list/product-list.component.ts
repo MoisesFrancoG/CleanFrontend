@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../../../core/models/Product';
+import { WebSocketService } from '../../services/websocket.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -9,16 +11,19 @@ import { Product } from '../../../../core/models/Product';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private wsService: WebSocketService
+  ) {}
 
   ngOnInit(): void {
     this.loadProducts();
+    this.listenWebSocket();
   }
 
   loadProducts(): void {
     this.productService.getProducts().subscribe((data) => {
       this.products = data;
-      console.log(data)
     });
   }
 
@@ -29,5 +34,18 @@ export class ProductListComponent implements OnInit {
       });
     }
   }
-  
+
+  listenWebSocket(): void {
+    this.wsService.getMessages().subscribe((message) => {
+      if (message.sender === 'API_REST' && message.DestinationID === '123') {
+        Swal.fire({
+          title: '📢 Notificación',
+          text: message.content, 
+          icon: 'info',
+          timer: 5000, 
+          timerProgressBar: true
+        });
+      }
+    });
+  }
 }
